@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:watchapp/features/authentication/screens/onboarding/onboarding_screen.dart';
 import 'package:watchapp/utils/constants/text_strings.dart';
 import 'package:watchapp/utils/theme/theme.dart';
 
@@ -15,11 +16,7 @@ class MyApp extends StatelessWidget {
       darkTheme: WAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       // initialBinding: GeneralBindings(),
-      home: const Scaffold(
-        body: Center(
-          child: Text('Awesome! 🎊 Project Structure is set up and running. \n Happy T Coding 🎊', textAlign: TextAlign.center,),
-        ),
-      ),
+      home: const OnboardingScreen(),
     );
   }
 }

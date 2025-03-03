@@ -1,8 +1,8 @@
 # WatchHub - Premium Watch Shopping App
 
-![WatchHub Banner](assets/banner.png) <!-- Add your banner image if available -->
 
-A Flutter-based eCommerce application for premium watch shopping, developed as part of Aptech's eProject initiative.
+
+## A Flutter-based eCommerce application for premium watch shopping, developed as part of Aptech's eProject initiative.
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -180,24 +180,24 @@ flutter run
 
 ### eProject Documentation Includes:
 
-- **Complete system architecture diagrams
+- **Complete system architecture diagrams**
+- 
+- **Database schema documentation**
 
-- **Database schema documentation
+- **Developer implementation guide**
 
-- **Developer implementation guide
+- **User manual**
 
-- **User manual
+- **Video demonstration**
 
-- **Video demonstration
+- **Security audit**
 
-- ** Security audit report
+- **Academic Compliance:**
 
-- **Academic Compliance:
+- **DFDs & Flowcharts**
 
-- **DFDs & Flowcharts
+- **ER Diagrams**
 
-- **ER Diagrams
+- **Test case documentation**
 
-- **Test case documentation
-
-Code commenting standards
+- **Code commenting standards**

@@ -152,11 +152,11 @@ flutter run
 
 ### Sair Ali (Student1477264)
 
-- **Content strategy
+- **Content strategy**
 
-- **Product descriptions
+- **Product descriptions**
 
-- **Marketing copy
+- **Marketing copy**
 
 ### Hadeed (Student1486963)
 

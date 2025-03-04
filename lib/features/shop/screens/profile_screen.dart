@@ -6,7 +6,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text('hello Wishlist Screen Here')),
+      body: Center(child: Text('Profile Screen Here')),
     );
   }
 }

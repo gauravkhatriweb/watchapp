@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:watchapp/utils/helpers/helper_functions.dart';
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/products/cart/cart_menu_icon.dart';
 import '../../../../../utils/constants/colors.dart';
@@ -9,6 +10,7 @@ class WHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = WHelperFunctions.isDarkMode(context);
     return WAppBar(
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -17,17 +19,17 @@ class WHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             WTexts.homeAppbarTitle,
             style: Theme.of(
               context,
-            ).textTheme.labelMedium!.apply(color: WColors.grey),
+            ).textTheme.labelMedium,
           ),
           Text(
             WTexts.homeAppbarSubTitle,
             style: Theme.of(
               context,
-            ).textTheme.labelSmall!.apply(color: WColors.white),
+            ).textTheme.labelSmall,
           ),
         ],
       ),
-      actions: [WCartCounterIcon(onPressed: () {}, iconColor: Colors.white)],
+      actions: [WCartCounterIcon(onPressed: () {}, iconColor: dark ? Colors.white : Colors.black)],
     );
   }
 

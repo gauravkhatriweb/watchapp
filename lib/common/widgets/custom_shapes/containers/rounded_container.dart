@@ -12,7 +12,7 @@ class WRoundedContainer extends StatelessWidget {
     this.child,
     this.showBorder = false,
     this.borderColor = WColors.borderPrimary,
-    this.backgroundColor =Colors.yellow,
+    this.backgroundColor = WColors.white,
     this.padding,
     this.margin,
   });
@@ -38,6 +38,7 @@ class WRoundedContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
         border: showBorder ? Border.all(color: borderColor) : null,
       ),
+      child: child,
     );
   }
 }

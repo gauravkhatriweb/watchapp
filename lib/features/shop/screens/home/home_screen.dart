@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:watchapp/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:watchapp/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:watchapp/common/widgets/text/section_heading.dart';
 import 'package:watchapp/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:watchapp/features/shop/screens/home/widgets/home_categories.dart';
@@ -50,6 +51,7 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.all(WSizes.defaultSpace),
               child: Column(
                 children: [
+                  // Promo Slider
                   WPromoSlider(
                     banners: [
                       WImages.promoBanner1,
@@ -59,8 +61,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                   SizedBox(height: WSizes.spaceBtwSections),
                   WSectionHeading(title: 'Popular Products',),
-                  SizedBox(height: WSizes.spaceBtwItems),
+                  SizedBox(height: WSizes.spaceBtwSections),
+
                   // Popular Products
+                  WProductCardVertical()
                 ],
               ),
             ),

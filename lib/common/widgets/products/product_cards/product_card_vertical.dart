@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:watchapp/common/styles/shadows.dart';
 import 'package:watchapp/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:watchapp/common/widgets/images/w_rounded_image.dart';
+import 'package:watchapp/common/widgets/text/product_price_text.dart';
 import 'package:watchapp/common/widgets/text/product_title_text.dart';
 import 'package:watchapp/utils/helpers/helper_functions.dart';
 
@@ -18,33 +19,37 @@ class WProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = WHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: (){},
-      child: Container(
-        width: 180,
-        padding: const EdgeInsets.all(1),
-        decoration: BoxDecoration(
-          boxShadow: [WShadowStyle.verticalProductShadow],
-          borderRadius: BorderRadius.circular(WSizes.productImageRadius),
-          color: dark ? WColors.darkerGrey : WColors.white,
+      onTap: () {},
+      child: Card(
+        elevation: 3, // Subtle drop shadow
+        color: dark ? WColors.darkerGrey : WColors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(WSizes.cardRadiusLg),
         ),
-        child: Column(
-          children: [
-            /// Thumbnail, WishList Button, Discount Tag
-            WRoundedContainer(
-              height: 180,
-              padding: const EdgeInsets.all(WSizes.sm),
-              backgroundColor: dark ? WColors.dark : WColors.light,
-              child: Stack(
+        child: SizedBox(
+          width: 180,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Top Section: Image with discount badge and favorite icon
+              Stack(
                 children: [
-                  /// -- Thumbnail Image
-                  const WRoundedImage(
-                    imageUrl: WImages.productImage1,
-                    applyImageRadius: true,
+                  // Product image container
+                  WRoundedContainer(
+                    height: 180,
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(WSizes.sm),
+                    backgroundColor: dark ? WColors.dark : WColors.light,
+                    child: const WRoundedImage(
+                      imageUrl: WImages.productImage1,
+                      applyImageRadius: true,
+                    ),
                   ),
-
-                  /// -- Sale Tag
+                  // Discount Badge (top-left)
                   Positioned(
                     top: 12,
+                    left: 12, // Explicitly position on the left
                     child: WRoundedContainer(
                       radius: WSizes.sm,
                       backgroundColor: WColors.secondary.withOpacity(0.8),
@@ -54,70 +59,72 @@ class WProductCardVertical extends StatelessWidget {
                       ),
                       child: Text(
                         '25%',
-                        style: Theme.of(
-                          context,
-                        ).textTheme.labelLarge!.apply(color: WColors.black),
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge!
+                            .apply(color: WColors.black),
                       ),
                     ),
                   ),
-
-                  /// -- Favourite Icon Button
+                  // Favorite Icon (top-right)
                   const Positioned(
                     top: 0,
                     right: 0,
-                    child: WCircularIcon(icon: Iconsax.heart5, color: Colors.red),
+                    child: WCircularIcon(
+                      icon: Iconsax.heart5,
+                      color: Colors.red,
+                    ),
                   ),
                 ],
               ),
-            ),
-            const SizedBox(height: WSizes.spaceBtwItems / 2),
-
-            /// -- Details,
-            Padding(
-              padding: const EdgeInsets.only(left: WSizes.sm),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const WProductTitleText(
-                    title: 'Green Nike Air Shoes',
-                    smallSize: true,
-                  ),
-                  const SizedBox(height: WSizes.spaceBtwItems / 2),
-                  Row(
+              const SizedBox(height: WSizes.spaceBtwItems / 2),
+              // Middle Section: Title and Brand info
+              Flexible(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: WSizes.sm),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Nike',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: Theme.of(context).textTheme.labelMedium,
+                      const WProductTitleText(
+                        title: 'Green Nike Air Shoes',
+                        smallSize: true,
                       ),
-                      const SizedBox(width: WSizes.xs),
-                      const Icon(
-                        Iconsax.verify5,
-                        color: WColors.primary,
-                        size: WSizes.iconXs,
+                      //const SizedBox(height: WSizes.spaceBtwItems / 2),
+                      Row(
+                        children: [
+                          Text(
+                            'Nike',
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            style: Theme.of(context).textTheme.labelMedium,
+                          ),
+                          const SizedBox(width: WSizes.xs),
+                          const Icon(
+                            Iconsax.verify5,
+                            color: WColors.primary,
+                            size: WSizes.iconXs,
+                          ),
+                        ],
                       ),
                     ],
                   ),
-
-                  Row(
+                ),
+              ),
+              //const SizedBox(height: WSizes.spaceBtwItems / 2),
+              // Bottom Row: Price and Add Button
+              Flexible(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: WSizes.sm),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      //Price
-                      Text(
-                        '\$35.5',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.headlineMedium,
-                      ),
+                      const WProductPriceText(price: '350.0'),
                       Container(
                         decoration: const BoxDecoration(
                           color: WColors.dark,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(WSizes.cardRadiusMd),
-                            bottomRight: Radius.circular(
-                              WSizes.productImageRadius,
-                            ),
+                            bottomRight: Radius.circular(WSizes.productImageRadius),
                           ),
                         ),
                         child: const SizedBox(
@@ -130,10 +137,11 @@ class WProductCardVertical extends StatelessWidget {
                       ),
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ],
+              //const SizedBox(height: WSizes.spaceBtwItems / 2),
+            ],
+          ),
         ),
       ),
     );

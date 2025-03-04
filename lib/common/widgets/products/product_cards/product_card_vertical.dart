@@ -106,11 +106,11 @@ class WProductCardVertical extends StatelessWidget {
                           ),
                         ],
                       ),
+
                     ],
                   ),
                 ),
               ),
-              //const SizedBox(height: WSizes.spaceBtwItems / 2),
               // Bottom Row: Price and Add Button
               Flexible(
                 child: Padding(

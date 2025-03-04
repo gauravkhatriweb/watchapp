@@ -4,7 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:watchapp/utils/helpers/helper_functions.dart';
 import 'features/shop/screens/home/home_screen.dart';
 import 'features/shop/screens/profile_screen.dart';
-import 'features/shop/screens/store_screen.dart';
+import 'features/shop/screens/store/store_screen.dart';
 import 'features/shop/screens/wishlist_screen.dart';
 
 class NavigationMenu extends StatelessWidget {
